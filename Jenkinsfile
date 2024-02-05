@@ -21,6 +21,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
+                    sh 'php artisan key:generate'
                     sh 'php artisan test'
                 }
             }
