@@ -24,6 +24,7 @@ pipeline {
                     sh 'cp .env.example .env'
                     sh 'php artisan key:generate'
                     sh 'php artisan test'
+                    sh 'vendor/bin/phpunit --log-junit test-results.xml' // Run PHPUnit tests and generate a JUnit XML report
                 }
             }
         }
