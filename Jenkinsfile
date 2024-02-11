@@ -19,7 +19,10 @@ pipeline {
         }
 
         stage('Run Tests') {
-            steps {
+             environment {
+           XDEBUG_MODE = 'coverage'
+        }
+         steps {
                 script {
                     sh 'cp .env.example .env'
                     sh 'php artisan key:generate'
