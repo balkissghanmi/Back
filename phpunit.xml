@@ -32,7 +32,8 @@
 
     <coverage>
         <include>
-            <directory suffix=".php">src</directory>
+           <!-- <directory suffix=".php">src</directory> -->
+           <directory suffix=".php">app</directory>
         </include>
         <report>
             <html outputDirectory="build/coverage" />
