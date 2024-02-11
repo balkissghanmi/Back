@@ -33,6 +33,9 @@ pipeline {
         }
         stage('Unit Tests') {
     steps {
+         environment {
+           XDEBUG_MODE = 'coverage'
+        }
         sh 'vendor/bin/phpunit'
         xunit([
             thresholds: [
