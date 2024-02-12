@@ -22,7 +22,8 @@ pipeline {
                 script {
                     sh 'composer require --dev phpstan/phpstan'
                     //sh 'vendor/bin/phpstan analyse public tests'
-                    sh 'vendor/bin/phpstan analyse .'
+                    //sh 'vendor/bin/phpstan analyse .'
+                    sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
                 }
             }
         }
