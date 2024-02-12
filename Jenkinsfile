@@ -17,7 +17,15 @@ pipeline {
                 }
             }
         }
-
+        stage('PHPStan Analysis') {
+            steps {
+                script {
+                    sh 'composer require --dev phpstan/phpstan'
+                    sh 'vendor/bin/phpstan analyse src tests'
+                    //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
+                }
+            }
+        }
         stage('Run Tests') {
             environment {
                 XDEBUG_MODE = 'coverage'
