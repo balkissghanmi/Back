@@ -17,9 +17,12 @@ pipeline {
                 }
             }
         }
+        
         stage('PHPStan Analysis') {
             steps {
                 script {
+                    sh 'pwd' // Prints the current working directory
+                    sh 'ls -la' // Lists all files in the current directory
                     sh 'composer require --dev phpstan/phpstan'
                     //sh 'vendor/bin/phpstan analyse public tests'
                     //sh 'vendor/bin/phpstan analyse .'
