@@ -21,7 +21,7 @@ pipeline {
         stage('PHPStan Analysis') {
             steps {
                 script {
-                    sh ' mkdir phpstan.neon  ' 
+                   
                     sh 'composer require --dev phpstan/phpstan'
                     //sh 'vendor/bin/phpstan analyse public tests'
                     //sh 'vendor/bin/phpstan analyse .'
