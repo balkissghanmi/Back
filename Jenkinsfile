@@ -72,9 +72,9 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    withSonarQubeEnv('YourSonarQubeEnvName') {
+                    withSonarQubeEnv('YourSonarQubeEnvName') 
                         sh 'sonar-scanner -Dsonar.projectKey=Back -Dsonar.sources=.  -Dsonar.login=admin  -Dsonar.password=root'
-                    }
+                    
                 }
             }
         }
