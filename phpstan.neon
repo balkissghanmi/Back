@@ -1,5 +1,8 @@
 parameters:
     level: max
     paths:
+        - app
         - public
+        - config
         - tests
+        - routes
