@@ -72,8 +72,8 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    //withSonarQubeEnv('YourSonarQubeEnvName') 
-                        sh 'sonar-scanner -Dsonar.projectKey=Back -Dsonar.sources=.  -Dsonar.login=admin  -Dsonar.password=root'
+                    withSonarQubeEnv(installationName: 'sonarqube') 
+                        sh 'sonar-scanner  '
                     
                 }
             }
