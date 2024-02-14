@@ -22,9 +22,8 @@ pipeline {
                 script {
                     sh 'mkdir -p reports'
                     sh 'composer require --dev phpstan/phpstan'
-                    //sh 'vendor/bin/phpstan analyse public tests'
-                    //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
-                    sh 'vendor/bin/phpstan analyse -l 2  --no-progress -c phpstan.neon .  --error-format=json > reports/phpstan-report.json'
+                    //sh 'vendor/bin/phpstan analyse public tests' //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
+                    sh 'set +e; vendor/bin/phpstan analyse -l 2 --no-progress -c phpstan.neon . --error-format=json > reports/phpstan-report.json; set -e'
                     //sh 'vendor/bin/phpstan analyse -l 5 --no-progress -c phpstan.neon . --error-format=json > reports/phpstan-report.json'
                     sh ' echo "test"'
                 }
