@@ -25,6 +25,7 @@ pipeline {
                     //sh 'vendor/bin/phpstan analyse public tests'
                     //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
                     sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon . --error-format=json > reports/phpstan-report.json'
+                    sh ' echo "test"'
                 }
             }
         }
