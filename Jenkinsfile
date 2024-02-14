@@ -75,7 +75,7 @@ pipeline {
     //                 withSonarQubeEnv(credentialsId: 'sonar') { 
     //                     sh 'sonar-scanner  '
                     
-    //             }
+    //             } 
     //         }
     //     }
     // }
