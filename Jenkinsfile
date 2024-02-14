@@ -17,16 +17,16 @@ pipeline {
             }
         }
 
-    //    stage('PHPStan Analysis') {
-    //        steps {
-    //            scripat {
+        stage('PHPStan Analysis') {
+            steps {
+                scripat {
                    
-    //                sh 'composer require --dev phpstan/phpstan'
-    //                 sh 'vendor/bin/phpstan analyse public tests'
-    //                sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
-    //            }
-    //        }
-    //    }
+                    sh 'composer require --dev phpstan/phpstan'
+                    sh 'vendor/bin/phpstan analyse public tests'
+                    sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
+                }
+            }
+        }
         stage('Run Tests') {
             environment {
                 XDEBUG_MODE = 'coverage'
