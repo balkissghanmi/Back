@@ -69,15 +69,15 @@ pipeline {
                 recordCoverage(tools: [[parser: 'COBERTURA', pattern: 'build/logs/cobertura.xml']])
             }
         }
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv(credentialsId: 'sonar') { 
-                        sh 'sonar-scanner  '
+    //     stage('SonarQube Analysis') {
+    //         steps {
+    //             script {
+    //                 withSonarQubeEnv(credentialsId: 'sonar') { 
+    //                     sh 'sonar-scanner  '
                     
-                }
-            }
-        }
-    }
+    //             }
+    //         }
+    //     }
+    // }
 }
 }
