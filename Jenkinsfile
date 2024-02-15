@@ -17,18 +17,19 @@ pipeline {
             }
         }
 
-        stage('PHPStan Analysis') {
-            steps {
-                script {
-                    sh 'mkdir -p reports'
-                    sh 'composer require --dev phpstan/phpstan'
-                    //sh 'vendor/bin/phpstan analyse public tests' //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
-                    sh ' vendor/bin/phpstan analyse -l 2 --no-progress -c phpstan.neon .'
-                    //sh 'vendor/bin/phpstan analyse -l 5 --no-progress -c phpstan.neon . --error-format=json > reports/phpstan-report.json'
-                    sh ' echo "test"'
-                }
-            }
-        }
+        // stage('PHPStan Analysis') {
+        //     steps {
+        //         script {
+        //             sh 'mkdir -p reports'
+        //             sh 'composer require --dev phpstan/phpstan'
+        //             //sh 'vendor/bin/phpstan analyse public tests' //sh 'vendor/bin/phpstan analyse --level max --no-progress -c phpstan.neon .'
+        //             sh ' vendor/bin/phpstan analyse -l 2 --no-progress -c phpstan.neon .'
+        //             //sh 'vendor/bin/phpstan analyse -l 5 --no-progress -c phpstan.neon . --error-format=json > reports/phpstan-report.json'
+        //             sh ' echo "test"'
+        //         }
+        //     }
+        // }
+        
         stage('Run Tests') {
             environment {
                 XDEBUG_MODE = 'coverage'
@@ -73,15 +74,15 @@ pipeline {
         }
 
 
-    //     stage('SonarQube Analysis') {
-    //         steps {
-    //             script {
-    //                 withSonarQubeEnv(credentialsId: 'sonar') { 
-    //                     sh 'sonar-scanner  '
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
+                        sh 'sonar-scanner '
                     
-    //             } 
-    //         }
-    //     }
-    // }
+                } 
+            }
+        }
+    }
 }
 }
