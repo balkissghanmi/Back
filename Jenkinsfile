@@ -78,7 +78,9 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
-                        sh 'sonar-scanner  '
+                        sh 'pwd'
+                        sh 'ls'
+                        sh 'hostname'
                     
                 } 
             }
