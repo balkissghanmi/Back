@@ -74,27 +74,27 @@ pipeline {
         }
 
 
-    //     stage('SonarQube Analysis') {
-    //         steps {
-    //             script {
-    //                 withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
-    //                     sh 'sonar-scanner  '
-                    
-    //             } 
-    //         }
-    //     }
-    // }
-         stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
                 script {
-                    scannerHome= tool 'sonarqube-scanner-latest'
-                    withSonarQubeEnv('sonarqube-scanner') { 
-                        sh "${scannerHome}/bin/sonar-scanner"
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
+                        sh 'sonar-scanner  '
                     
                 } 
             }
         }
     }
+    //      stage('SonarQube Analysis') {
+    //         steps {
+    //             script {
+    //                 def scannerHome= tool 'sonarqube-scanner-latest'
+    //                 withSonarQubeEnv('sonarqube-scanner') { 
+    //                     sh "${scannerHome}/bin/sonar-scanner"
+                    
+    //             } 
+    //         }
+    //     }
+    // }
 
 }
 }
