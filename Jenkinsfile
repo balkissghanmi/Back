@@ -92,6 +92,7 @@ pipeline {
                     
                     def scannerHome= tool 'sonarqube-scanner-latest'
                     withSonarQubeEnv('sonarqube-scanner') { 
+                         sh 'pwd'
                         sh 'echo ${scannerHome}'
                         sh  'sonar-scanner'
                     
