@@ -90,13 +90,13 @@ pipeline {
             steps {
                 script {
                     
-                    def scannerHome= tool 'sonarqube-scanner-latest'
-                    withSonarQubeEnv('sonarqube-scanner') { 
+                   // def scannerHome= tool 'sonarqube-scanner-latest'
+                  //  withSonarQubeEnv('sonarqube-scanner') { 
                          sh 'pwd'
-                        sh 'echo ${scannerHome}'
+                    //    sh 'echo ${scannerHome}'
                         sh  'sonar-scanner -Dsonar.projectKey=jenkins-sonarqube-token -Dsonar.sources=. -Dsonar.host.url=http://192.168.56.20:9000 -Dsonar.login=sqa_ed405358e620f6865067d0bdc8c4a651ce6b3ce1'
                     
-                } 
+               // } 
             }
         }
     }
