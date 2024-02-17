@@ -80,7 +80,7 @@ pipeline {
                     withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
                         sh 'pwd'
                         sh 'ls'
-                        sh 'hostname -i'
+                        sh 'sonar-scanner'
                     
                 } 
             }
