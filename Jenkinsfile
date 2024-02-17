@@ -97,8 +97,8 @@ pipeline {
             steps {
                 script {
                          sh 'pwd'
-                        sh  '/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=jenkins-sonarqube-token -Dsonar.sources=. -Dsonar.host.url=http://192.168.56.20:9000 -Dsonar.login=sqa_ed405358e620f6865067d0bdc8c4a651ce6b3ce1 -Dsonar.php.coverage.reportPaths=build/logs/clover.xml'
-
+                        //sh  '/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=jenkins-sonarqube-token -Dsonar.sources=. -Dsonar.host.url=http://192.168.56.20:9000 -Dsonar.login=sqa_ed405358e620f6865067d0bdc8c4a651ce6b3ce1 -Dsonar.php.coverage.reportPaths=build/logs/clover.xml'
+                        sh  '/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=jenkins-sonarqube-token -Dsonar.sources=. -Dsonar.host.url=http://192.168.56.20:9000 -Dsonar.login=sqa_ed405358e620f6865067d0bdc8c4a651ce6b3ce1 -Dsonar.flex.cobertura.reportPaths=build/logs/cobertura.xml'
             }
         }
     }
