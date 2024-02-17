@@ -45,6 +45,8 @@ pipeline {
                     sh 'php artisan key:generate'
                     sh 'php artisan test'
                     // sh 'vendor/bin/phpunit --log-junit test-results.xml' // Optionally run PHPUnit directly and generate a JUnit XML report
+                    sh'vendor/bin/phpunit --coverage-clover build/logs/clover.xml'
+
                 }
             }
         }
